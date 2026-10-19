@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caperucita Roja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<!-- Isometra: Adobe Fonts. Reemplazá TU_KIT por el ID de tu kit web -->
+<link rel="stylesheet" href="https://use.typekit.net/TU_KIT.css">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="fondo fondo-seguro" aria-hidden="true"></div>
+<div class="fondo fondo-peligro" aria-hidden="true"></div>
+<div class="camino" aria-hidden="true"></div>
+
+<iframe class="musica" title="Música de fondo"
+  src="https://www.youtube.com/embed/M-sLwYTCM6k?autoplay=1&loop=1&playlist=M-sLwYTCM6k"
+  allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<main>
+
+<!-- INICIO -->
+<section id="inicio" class="escena seguro">
+  <img class="portada" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFGt2RYTFi3p2R0Aoyt3lCBNMh9HnIBIUigblwOmwMDYe9K0CjgRomGBUW&s=10" alt="Caperucita Roja con su canasta en el bosque">
+  <h1>Caperucita Roja</h1>
+  <p>Había una vez una niña a la que todos querían por su capa roja. Una mañana, su mamá le preparó una canasta con pan y miel para su abuelita, que vivía del otro lado del bosque.</p>
+  <p>«No te distraigas ni hables con extraños», le dijo. Al llegar al bosque, el sendero se partía en dos: uno corto y soleado, otro largo y cubierto de sombras.</p>
+  <a href="#corto">Ir por el camino corto</a>
+  <a href="#largo" class="peligro-enlace">Ir por el camino largo</a>
+</section>
+
+<!-- FINAL 1 -->
+<section id="corto" class="escena seguro">
+  <h1>El camino soleado</h1>
+  <p>Caperucita caminó entre troncos claros y hojas que dejaban pasar la luz. Escuchó pájaros, no se detuvo y llegó a la casa de su abuelita antes del mediodía.</p>
+  <p>La abuelita la abrazó fuerte, sana y contenta. Se sentaron juntas a la mesa, compartieron el pan y la miel de la canasta, y la tarde pasó tranquila.</p>
+  <p>Final 1: a salvo y en compañía.</p>
+  <a href="#inicio" class="abuela">Volver al comienzo</a>
+</section>
+
+<!-- CAMINO LARGO -->
+<section id="largo" class="escena peligro">
+  <h1>El camino de las sombras</h1>
+  <p>Los árboles se cerraron sobre Caperucita y la luz se volvió escasa. Entre los troncos oscuros, un claro lleno de flores brillaba a un costado del sendero.</p>
+  <p>Algo gris se movía detrás de los helechos. Caperucita dudó.</p>
+  <a href="#lobo-bosque" class="lobo">Detenerme a juntar flores</a>
+  <a href="#casa">Seguir sin detenerme</a>
+</section>
+
+<!-- FINAL 2 -->
+<section id="lobo-bosque" class="escena peligro">
+  <h1>El lobo del claro</h1>
+  <p>Mientras juntaba flores, una sombra gris se alzó detrás de ella. Era el lobo, con los ojos fijos en la capa roja.</p>
+  <p>Caperucita no llegó a correr. El lobo se la comió en medio del bosque, y la canasta quedó caída sobre las hojas.</p>
+  <p>Final 2: el lobo la encontró en el bosque.</p>
+  <a href="#inicio" class="lobo">Volver al comienzo</a>
+</section>
+
+<!-- CASA DE LA ABUELITA -->
+<section id="casa" class="escena peligro">
+  <h1>La casita de la abuelita</h1>
+  <p>Caperucita no se detuvo y llegó, agitada, a la casita del claro. No vio al lobo en todo el camino. La puerta estaba cerrada y no se oía ningún ruido.</p>
+  <a href="#abuela-feliz" class="abuela">Empujar la puerta</a>
+  <a href="#disfraz">Golpear tres veces</a>
+</section>
+
+<!-- FINAL 3 -->
+<section id="abuela-feliz" class="escena peligro">
+  <h1>Una mesa para dos</h1>
+  <p>La puerta cedió. La abuelita estaba allí, sana, y la recibió con un abrazo. Pusieron la mesa y empezaron a comer lo que traía la canasta.</p>
+  <p>Entonces se oyeron pasos pesados. El lobo, que las había seguido desde lejos, entró de un empujón y se comió a las dos.</p>
+  <p>Final 3: el lobo las sorprendió comiendo.</p>
+  <a href="#inicio" class="lobo">Volver al comienzo</a>
+</section>
+
+<!-- LOBO DISFRAZADO -->
+<section id="disfraz" class="escena peligro">
+  <h1>La abuelita de la cama</h1>
+  <p>«Pasa, querida», dijo una voz ronca. Caperucita entró. En la cama, bajo un gorro y una colcha celeste, alguien la esperaba.</p>
+  <p>«Abuelita, qué ojos tan grandes tienes». «Para verte mejor». «Qué orejas, qué dientes tan grandes…». Era el lobo: se había comido a la abuelita y se había puesto su ropa.</p>
+  <a href="#fin4" class="lobo">Quedarme paralizada</a>
+  <a href="#fin5" class="cazador">Gritar con todas mis fuerzas</a>
+</section>
+
+<!-- FINAL 4 -->
+<section id="fin4" class="escena peligro">
+  <h1>Silencio en la casita</h1>
+  <p>El miedo la dejó sin voz. El lobo saltó de la cama y se comió a Caperucita. Después se durmió, satisfecho.</p>
+  <p>Final 4: el disfraz del lobo la engañó.</p>
+  <a href="#inicio" class="lobo">Volver al comienzo</a>
+</section>
+
+<!-- FINAL 5 -->
+<section id="fin5" class="escena seguro">
+  <h1>El cazador llegó a tiempo</h1>
+  <p>El lobo se la comió igual, pero los gritos de Caperucita llegaron hasta el cazador, que pasaba cerca. Entró de golpe y mató al lobo.</p>
+  <p>Del vientre del lobo salieron, sanas y salvas, Caperucita y su abuelita. Los tres se sentaron a comer el pan y la miel de la canasta, y el bosque volvió a ser un lugar tranquilo.</p>
+  <p>Final 5: el final original del cuento.</p>
+  <a href="#inicio" class="cazador">Volver al comienzo</a>
+</section>
+
+</main>
+</body>
+</html>

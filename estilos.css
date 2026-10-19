@@ -1,0 +1,121 @@
+:root{
+  --rojo:#c0272d; --rojo-vivo:#e0393f;
+  --gris:#7d8590; --gris-oscuro:#4d535c;
+  --celeste:#a9d6ee; --amarillo:#f2c230;
+  --papel:#fbf3e0; --tinta:#3a2a1a;
+  --cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 14a8 8 0 0 1 16 0' fill='none' stroke='%238a5a2b' stroke-width='2'/%3E%3Cpath d='M4 14h24l-3 14H7z' fill='%23c58b4a' stroke='%236b4423' stroke-width='1.5'/%3E%3Cpath d='M4 14h24l-1 4H5z' fill='%23c0272d'/%3E%3C/svg%3E") 6 6, auto;
+  --cursor-enlace:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 32 32'%3E%3Cpath d='M8 11a8 8 0 0 1 16 0' fill='none' stroke='%238a5a2b' stroke-width='2'/%3E%3Cpath d='M4 11h24l-3 14H7z' fill='%23d9a15f' stroke='%236b4423' stroke-width='1.5'/%3E%3Cpath d='M4 11h24l-1 4H5z' fill='%23e0393f'/%3E%3C/svg%3E") 6 6, pointer;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  color:var(--tinta);
+  font-family:"Libre Caslon Condensed",serif;
+  cursor:var(--cursor); /* fallback: cursor del sistema */
+  overflow-x:hidden;
+}
+
+/* ---------- Fondo en capas ---------- */
+.fondo{position:fixed;inset:0;z-index:-3;transition:opacity 1.6s ease}
+.fondo-seguro{
+  background:
+    /* troncos cercanos */
+    linear-gradient(90deg,#b98a57 0 4%,#a77a49 4% 6%,transparent 6% 94%,#a77a49 94% 96%,#b98a57 96%),
+    /* troncos lejanos */
+    repeating-linear-gradient(90deg,transparent 0 11%,#d4b283 11% 12.5%,transparent 12.5% 19%),
+    /* follaje */
+    radial-gradient(ellipse 40% 22% at 10% 6%,#9fd18a 0 60%,transparent 62%),
+    radial-gradient(ellipse 40% 22% at 90% 6%,#9fd18a 0 60%,transparent 62%),
+    radial-gradient(ellipse 50% 25% at 50% 0%,#b6e0a0 0 60%,transparent 62%),
+    linear-gradient(#f6edc4,#cfe6a8 60%,#a9cf86);
+  opacity:1;
+}
+.fondo-peligro{
+  background:
+    linear-gradient(90deg,#3a2415 0 9%,#4a2f1b 9% 12%,transparent 12% 88%,#4a2f1b 88% 91%,#3a2415 91%),
+    repeating-linear-gradient(90deg,transparent 0 7%,#3f2a1a 7% 9%,transparent 9% 14%),
+    radial-gradient(ellipse 55% 28% at 8% 4%,#1f4a2c 0 60%,transparent 62%),
+    radial-gradient(ellipse 55% 28% at 92% 4%,#1f4a2c 0 60%,transparent 62%),
+    radial-gradient(ellipse 60% 30% at 50% 0%,#17391f 0 60%,transparent 62%),
+    linear-gradient(#26382b,#1d2c21 55%,#2a2418);
+  opacity:0;
+}
+/* camino central: guía visual */
+.camino{
+  position:fixed;left:50%;bottom:0;width:min(46vw,420px);height:100%;
+  transform:translateX(-50%);z-index:-2;
+  background:linear-gradient(#c9a26b,#e0bf8a);
+  clip-path:polygon(47% 0,53% 0,100% 100%,0 100%);
+  box-shadow:inset 0 0 60px rgba(90,60,20,.35);
+  transition:filter 1.6s ease;
+}
+body:has(.peligro:target) .fondo-seguro{opacity:0}
+body:has(.peligro:target) .fondo-peligro{opacity:1}
+body:has(.peligro:target) .camino{filter:brightness(.45) saturate(.7)}
+
+/* ---------- Escenas ---------- */
+main{display:grid;place-items:center;min-height:100vh;padding:2rem 1rem 5rem}
+.escena{display:none;max-width:38rem;width:100%;padding:2rem 2rem 2.4rem;text-align:center;
+  background:rgba(251,243,224,.92);border-radius:18px 28px 20px 30px;
+  border:2px solid #b98a57;box-shadow:0 14px 30px rgba(60,40,15,.35)}
+.escena:target,
+body:not(:has(:target)) #inicio{display:block}
+.escena.peligro{background:rgba(58,52,46,.88);color:#eadfce;border-color:#2e1e12;
+  box-shadow:0 18px 40px rgba(0,0,0,.6)}
+.portada{display:block;margin:0 auto 1rem;max-width:min(100%,260px);border-radius:14px;box-shadow:0 8px 18px rgba(60,40,15,.4)}
+
+h1{font-family:"Isometra",serif;font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);
+  margin:.2rem 0 1rem;color:var(--rojo)}
+.peligro h1{color:#e8776f}
+p{font-size:1.25rem;line-height:1.6;margin:0 0 .9rem}
+
+/* ---------- Enlaces: pisadas ---------- */
+a{
+  --paso:var(--rojo);
+  position:relative;display:inline-block;margin:2.4rem .9rem .8rem;
+  padding:1.1rem 1.5rem;min-width:9.5rem;max-width:13rem;
+  font-family:"Playfair Display",serif;font-weight:700;font-size:.98rem;line-height:1.2;
+  color:#fff;text-decoration:none;text-align:center;
+  background:var(--paso);border-radius:48% 52% 44% 56% / 60% 60% 40% 40%;
+  box-shadow:0 5px 0 rgba(60,25,10,.4),0 8px 14px rgba(40,20,5,.4);
+  transform:rotate(-7deg);cursor:var(--cursor-enlace);
+  transition:transform .35s ease,filter .35s ease,box-shadow .35s ease;
+}
+a:nth-of-type(even){transform:rotate(6deg)}
+a::before{ /* dedos de la pisada */
+  content:"";position:absolute;left:8%;right:8%;top:-1.15rem;height:1.2rem;pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 78%,var(--paso) 0 .3rem,transparent .34rem),
+    radial-gradient(circle at 36% 40%,var(--paso) 0 .36rem,transparent .4rem),
+    radial-gradient(circle at 62% 40%,var(--paso) 0 .36rem,transparent .4rem),
+    radial-gradient(circle at 88% 78%,var(--paso) 0 .3rem,transparent .34rem);
+}
+a:hover{filter:brightness(1.18);transform:translateY(-4px) rotate(-3deg) scale(1.05);
+  box-shadow:0 9px 0 rgba(60,25,10,.35),0 14px 20px rgba(40,20,5,.4)}
+a:nth-of-type(even):hover{transform:translateY(-4px) rotate(3deg) scale(1.05)}
+a:focus-visible{outline:3px dashed var(--amarillo);outline-offset:6px}
+a:active{transform:translateY(3px) scale(.96);box-shadow:0 1px 0 rgba(60,25,10,.4)}
+a:visited{color:#fff}
+a[aria-current="true"]{filter:brightness(1.25);box-shadow:0 0 0 4px rgba(255,236,170,.7)}  /* seleccionado */
+a[aria-disabled="true"]{--paso:#9a8f84;opacity:.55;pointer-events:none;cursor:not-allowed}
+
+/* por personaje */
+a.abuela{--paso:var(--celeste);color:#1e3f52}
+a.abuela:visited{color:#1e3f52}
+a.cazador{--paso:var(--amarillo);color:#3a2a05}
+a.cazador:visited{color:#3a2a05}
+a.lobo{--paso:var(--gris);transition-duration:.12s}       /* más brusco */
+a.lobo:hover{--paso:var(--gris-oscuro);transform:translateY(2px) rotate(-10deg) scale(1.03)}
+.peligro a:not(.lobo):hover{box-shadow:0 10px 0 rgba(0,0,0,.5),0 16px 26px rgba(0,0,0,.65)}
+.seguro a:hover{box-shadow:0 9px 0 rgba(60,25,10,.3),0 0 22px rgba(255,236,170,.9)}
+
+/* ---------- Música ---------- */
+.musica{position:fixed;left:.8rem;bottom:.8rem;width:200px;height:113px;border:3px solid #b98a57;
+  border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.4);z-index:5}
+
+@media (max-width:600px){
+  .escena{padding:1.4rem 1.1rem 1.8rem}
+  p{font-size:1.15rem}
+  .musica{width:130px;height:74px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
